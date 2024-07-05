@@ -2,14 +2,12 @@ process readSpots {
 
 	container "quay.io/biocontainers/sra-tools:2.8.2--0"
 
-	input:
-	path x
 
     output:
-    path "${x}.spots.lower"
+    path "dump.version.lower"
 
     """
-    fastq-dump --legacy-report ${x} > ${x}.spots.lower
+    fastq-dump --version > dump.version.lower
     """
 }
 
@@ -29,5 +27,5 @@ process convertToUpper {
 }
 
 workflow {
-    Channel.of(file(params.input)) | readSpots | flatten | convertToUpper 
+    readSpots | convertToUpper 
 }
