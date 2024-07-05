@@ -1,6 +1,6 @@
 process readSpots {
 
-	container "quay.io/biocontainers/sra-tools:2.8.2--0"
+	container "767397757111.dkr.ecr.us-east-1.amazonaws.com/quay/sra-tools:2.8.2--0"
 
 
     output:
@@ -13,7 +13,7 @@ process readSpots {
 
 process convertToUpper {
 
-	container "ubuntu:22.04"
+	container "767397757111.dkr.ecr.us-east-1.amazonaws.com/dockerhub/ubuntu:20.04"
 
     input:
     path x
